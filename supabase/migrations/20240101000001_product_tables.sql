@@ -1,0 +1,57 @@
+-- ============================================================
+-- Migration: Product Tables
+-- Created: 2024-01-01
+-- Description: Template for product-specific tables.
+--
+-- INSTRUCTIONS:
+--   1. Replace [your_entity] with your actual entity name (e.g., tasks, notes, habits)
+--   2. Add the fields your product needs
+--   3. Update RLS policies as needed
+--   4. Run: supabase db push
+-- ============================================================
+
+-- ── [your_entity] ─────────────────────────────────────────────────────────────
+-- EXAMPLE: Uncomment and customize this template for your product entities.
+
+-- create table if not exists public.items (
+--   id          uuid        primary key default gen_random_uuid(),
+--   user_id     uuid        not null references public.profiles(id) on delete cascade,
+--   title       text        not null,
+--   description text,
+--   is_done     boolean     not null default false,
+--   position    integer     not null default 0,
+--   created_at  timestamptz not null default now(),
+--   updated_at  timestamptz not null default now()
+-- );
+--
+-- -- Indexes
+-- create index if not exists items_user_id_idx  on public.items (user_id);
+-- create index if not exists items_position_idx on public.items (user_id, position);
+--
+-- -- RLS
+-- alter table public.items enable row level security;
+--
+-- create policy "items: select own"
+--   on public.items for select
+--   using (auth.uid() = user_id);
+--
+-- create policy "items: insert own"
+--   on public.items for insert
+--   with check (auth.uid() = user_id);
+--
+-- create policy "items: update own"
+--   on public.items for update
+--   using (auth.uid() = user_id);
+--
+-- create policy "items: delete own"
+--   on public.items for delete
+--   using (auth.uid() = user_id);
+--
+-- -- Auto-update updated_at
+-- create trigger items_updated_at
+--   before update on public.items
+--   for each row execute procedure update_updated_at_column();
+
+-- ── Notes ─────────────────────────────────────────────────────────────────────
+-- Add any additional tables and relationships below.
+-- Follow the same pattern: uuid pk, user_id fk, RLS, updated_at trigger.

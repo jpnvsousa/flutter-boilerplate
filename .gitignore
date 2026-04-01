@@ -1,0 +1,60 @@
+# ── Dart/Flutter ─────────────────────────────────────────────────────────────
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+*.iml
+
+# ── Generated Files ───────────────────────────────────────────────────────────
+*.g.dart
+*.freezed.dart
+*.config.dart
+lib/core/di/injection.config.dart
+
+# ── Environment / Secrets ─────────────────────────────────────────────────────
+.env
+.env.local
+.env.production
+.env.staging
+google-services.json
+GoogleService-Info.plist
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── iOS ───────────────────────────────────────────────────────────────────────
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework/
+ios/Flutter/Flutter.podspec
+ios/Runner/GeneratedPluginRegistrant.m
+ios/**/*.mobileprovision
+ios/**/*.p8
+ios/**/*.p12
+
+# ── Android ───────────────────────────────────────────────────────────────────
+android/.gradle/
+android/captures/
+android/gradlew
+android/gradlew.bat
+android/local.properties
+android/**/GeneratedPluginRegistrant.java
+android/key.properties
+android/app/upload-keystore.jks
+*.keystore
+
+# ── Test Coverage ─────────────────────────────────────────────────────────────
+coverage/
+
+# ── Supabase ──────────────────────────────────────────────────────────────────
+supabase/.temp/
